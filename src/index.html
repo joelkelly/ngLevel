@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html ng-app="ngBoilerplate" ng-controller="AppCtrl">
+  <head>
+    <!--#include virtual="/global/includes/meta.inc"-->
+    <title ng-bind="pageTitle">Apple - Product Name - Page Title</title>
+
+    <meta name="omni_page" content="Apple Professional Support" />
+    <meta name="Description" content="Apple Professional Support" />
+
+    <link rel="stylesheet" href="/global/styles/base.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- compiled CSS --><% styles.forEach( function ( file ) { %>
+    <link rel="stylesheet" type="text/css" href="<%= file %>" /><% }); %>
+
+    <!-- compiled JavaScript --><% scripts.forEach( function ( file ) { %>
+    <script type="text/javascript" src="<%= file %>"></script><% }); %>
+
+
+
+    <!-- it's stupid to have to load it here, but this is for the +1 button -->
+    <script type="text/javascript" src="https://apis.google.com/js/plusone.js">
+      { "parsetags": "explicit" }
+    </script>
+  </head>
+  <body>
+
+    <!--#include virtual="/global/nav/includes/generic.inc"-->
+    <nav id="productheader" data-hires="true">
+      <h2><a href="/productdir/"><img src="/v/productdir/x/images/productheader_productname.png" width="##" height="##" alt="Product Name" /></a></h2>
+      <ul>
+        <li id="pn-xxx"><a href="/productdir/xxx/">XXX</a></li>
+        <li id="pn-xxx"><a href="/productdir/xxx/">XXX</a></li>
+        <li id="pn-xxx"><a href="/productdir/xxx/">XXX</a></li>
+        <li id="pn-specs"><a href="/productdir/specs/">Tech Specs</a></li>
+        <li><a class="buynows" href="http://store.apple.com">Buy Product Name Now</a></li>
+      </ul>
+    </nav>
+    <!-- /productheader -->
+
+
+    <div class="container">
+      <div class="navbar navbar-default">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" ng-init="menuCollapsed = true"
+            ng-click="menuCollapsed = ! menuCollapsed">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="navbar-brand">
+            ngbp
+            <small>
+              <a href="http://github.com/ngbp/ngbp/blob/v<%= version %>-release/CHANGELOG.md">
+                v<%= version %>
+              </a>
+            </small>
+          </div>
+        </div>
+        <div class="collapse navbar-collapse" collapse="menuCollapsed">
+          <ul class="nav navbar-nav">
+            <li ui-sref-active="active">
+              <a href ui-sref="home">
+                <i class="fa fa-home"></i>
+                Home
+              </a>
+            </li>
+            <li ui-sref-active="active">
+              <a href ui-sref="about">
+                <i class="fa fa-info-circle"></i>
+                What is it?
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/ngbp/ngbp#readme">
+                <i class="fa fa-book"></i>
+                Read the Docs
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/ngbp/ngbp">
+                <i class="fa fa-github-alt"></i>
+                Github
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/ngbp/ngbp/issues">
+                <i class="fa fa-comments"></i>
+                Support
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container" ui-view="main"></div>
+
+   <footer id="globalfooter" role="contentinfo">
+    <div id="breadory">
+        <ol id="breadcrumbs">
+            <li class="home"><a href="/">Home</a></li>
+            <li><a href="/support/">Support</a></li>
+        </ol>
+    </div><!--/breadory-->
+
+    <!--#include virtual="/global/nav/includes/globalfooter.inc"-->
+
+  </body>
+</html>
